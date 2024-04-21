@@ -220,10 +220,11 @@ function App() {
       position: 'relative', //needed for sticky header
       height: '700px', //should be a fixed height
     }}>
-    <h2 className='text-xl font-bold border-2 py-2'>COLLEGE DETAILS</h2>
-    <div className='my-4 flex gap-4'>
-    <input type='text' placeholder='Search college ' className='border-2 border-gray-400 rounded-lg w-[400px] h-[40px] px-4' value={searchValue} onChange={handleSearchChange} />
-    <p>Click on Table Name to sort the respective field</p> 
+    <h2 className='text-xl font-bold  py-2'>COLLEGE DETAILS</h2>
+    <div className='my-4 flex gap-4 justify-between'>
+    <input type='text' id='search' placeholder='Search College Name' className='border-2 border-gray-400 rounded-lg w-[400px] h-[40px] px-4' value={searchValue} onChange={handleSearchChange} />
+  
+    <p className='px-4 text-red-500 font-medium'>*Click on Table Name to sort the respective column field</p> 
     </div>
       <div
         onScroll={e => fetchMoreOnBottomReached(e.target as HTMLDivElement)}
@@ -296,11 +297,11 @@ function App() {
                   key={row.id}
                   style={{
                     transform: `translateY(${virtualRow.start}px)`, 
-                    backgroundColor:`${isFeatured &&"#fed8b1 "}`//this should always be a `style` as it changes on scroll
+                  /*   backgroundColor:`${isFeatured &&"#fed8b1 "}` *///this should always be a `style` as it changes on scroll
                   }}
                   className={`h-[100px] flex absolute w-full justify-between items-center px-2`}
                 >
-                    
+                    {isFeatured&& <p className='bg-red-500 px-2 absolute top-0 lg:left-36 rounded-b-md'>Featured</p>}
                   {row.getVisibleCells().map(cell => {
                     return (
                       <td
