@@ -224,6 +224,7 @@ function App() {
     <div className='my-4 flex gap-4 justify-between'>
     <input type='text' id='search' placeholder='Search College Name' className='border-2 border-gray-400 rounded-lg w-[400px] h-[40px] px-4' value={searchValue} onChange={handleSearchChange} />
   
+    <p >College Data is creating randomly, for every refresh it will change data</p> 
     <p className='px-4 text-red-500 font-medium'>*Click on Table Name to sort the respective column field</p> 
     </div>
       <div
